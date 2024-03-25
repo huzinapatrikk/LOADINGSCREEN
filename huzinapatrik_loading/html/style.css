@@ -1,0 +1,252 @@
+
+
+/* Default */
+:root {
+    --main-color: rgb(40, 40, 40);
+    --secondary-color: rgb(25, 25, 25);
+    --border-color: rgba(70, 70, 70, 0.9);
+    --light-color: rgb(140, 140, 140);
+    --green-color: #38bb93;
+    --green-color-hover: rgba(56, 187, 147, 0.8);
+    --red-color: rgb(234, 60, 83);
+    --red-color-hover: rgb(234, 60, 83, 0.9);
+    --orange-color: rgb(253, 103, 58);
+    --orange-color-hover: rgba(253, 103, 58, 0.8);
+    --header-size: 50px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+/* Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: 100% 100%; /* Adjusted property */
+    background-position: center;
+
+    opacity: 0;
+
+    transition: opacity 0.5s;
+}
+
+.container {
+    width: 100%;
+    height: 60px;
+    
+    background-color: var(--main-color);
+    
+    position: relative;
+}
+
+.inner-div {
+    width: 0%;
+    height: 100%;
+    background-color: var(--green-color);
+
+    transition: width 0.3s;
+
+    position: relative;
+
+    top: 0;
+    left: 0;
+}
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+
+    font-size: 16pt;
+    font-family: 'main-font';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: var(--green-color-hover);
+
+    mix-blend-mode: difference;
+
+    text-shadow: 0 0 5px rgba(255, 255, 255, .3);
+}
+
+.front-text {
+    display: flex;
+    justify-content: center;
+
+    font-size: 25pt;
+    font-family: 'main-font';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -40px;
+    bottom: 0;
+
+    color: rgb(255, 255, 255);
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        0 0 5px rgba(255, 255, 255, 0.5);
+
+    transition: opacity .2s;
+}
+
+.spinner-container {
+    position: absolute;
+    top: -185%;
+    right: 2.5%;
+
+    font-size: 60pt;
+
+    color: rgb(255, 255, 255);
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        0 0 5px rgba(255, 255, 255, 0.5);
+
+    animation-name: spin;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+/*
+    Sound
+*/
+
+.sound-container {
+    position: absolute;
+    left: 0;
+    bottom: 250px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--main-color);
+
+    padding: 10px;
+}
+
+.sound-container i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: var(--green-color);
+
+    width: 30px;
+
+    margin-left: 5px;
+
+    transition: color .5s;
+
+    cursor: pointer;
+}
+
+.sound-container i:hover {
+    color: var(--green-color-hover);
+}
+
+.sound-container i.fa-volume-mute {
+    color: var(--red-color);
+}
+
+.sound-container i.fa-volume-mute:hover {
+    color: var(--red-color-hover);
+}
+
+.sound-container input.volume-slider {
+    margin-left: 5px;
+    -webkit-appearance: none;
+    width: 150px;
+    height: 5px;
+    background: var(--secondary-color);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s, scale .2s;
+}
+
+.sound-container input.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(22, 22, 22);
+    cursor: pointer;
+}
+
+.sound-container input.volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(22, 22, 22);
+    cursor: pointer;
+}
+
+.sound-container input.volume-slider::-moz-range-thumb:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+
+.sound-container input.volume-slider::-webkit-slider-thumb:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+
+.sound-container .volume-percentage {
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    margin-left: 10px;
+
+    font-size: 12pt;
+    font-family: 'main-font';
+
+    width: 25px;
+}
+
+.fa-volume-mute {
+    color: var(--red-color)
+}
+
+/*Font:*/
+@font-face {
+    font-family: 'main-font';
+    src: url('assets/font/BebasNeue-Regular.ttf') format('truetype');
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/db5a7eb354.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="image" id="image-1"></div>
+    <div class="image" id="image-2"></div>
+
+    <div class="container">
+        <div class="inner-div"></div>
+        <p class="center-text">Betöltés: 0%</p>
+        <p class="front-text">Adatok betöltése folyamatban...</p>
+        <div class="spinner-container">
+            <i class="fa-solid fa-spinner-scale fa-spin"></i>
+        </div>
+
+        <div class="sound-container">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" class="volume-slider" min="0" max="100" value="50">
+            <span class="volume-percentage">50%</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
